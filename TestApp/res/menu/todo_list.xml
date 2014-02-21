@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_add"
+        android:orderInCategory="100"
+        android:title="Add"
+        android:showAsAction="ifRoom" />
+
+    <item android:id="@+id/action_edit"
+          android:title="Edit"
+        android:showAsAction="ifRoom"/>
+
+    <item android:id="@+id/action_show_hide_checked"
+          android:title="Show/Hide Checked"
+        android:showAsAction="never"/>
+
+</menu>
