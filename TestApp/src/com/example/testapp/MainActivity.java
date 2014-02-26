@@ -16,12 +16,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
 
 public class MainActivity extends Activity {
-    private ListView 		lv;
-    private boolean  		isEditing;
+    private ListView 				lv;
+    private boolean  				isEditing;
+    private ArrayList<String> 		usersArrayList;
     
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -34,12 +36,11 @@ public class MainActivity extends Activity {
 
         // Instanciating an array list (you don't need to do this, 
         // you already have yours).
-        ArrayList<String> your_array_list = new ArrayList<String>();
-        your_array_list.add("Vlad's Work");
-        your_array_list.add("Vlad's Home");
-        your_array_list.add("Mike");
-        your_array_list.add("Rafael's to-dos");
-        your_array_list.add("Pablo");
+        usersArrayList = new ArrayList<String>();
+        usersArrayList.add("Vlad");
+        usersArrayList.add("Mike");
+        usersArrayList.add("Rafael");
+        usersArrayList.add("Pablo");
 
         // This is the array adapter, it takes the context of the activity as a 
         // first parameter, the type of list view as a second parameter and your 
@@ -47,7 +48,7 @@ public class MainActivity extends Activity {
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
                 this, 
                 android.R.layout.simple_list_item_1,
-                your_array_list );
+                usersArrayList );
 
         lv.setAdapter(arrayAdapter); 
         
@@ -73,9 +74,15 @@ public class MainActivity extends Activity {
 	    switch (item.getItemId()) {
 	    case R.id.action_add:	 
 			final AlertDialog.Builder builder=new AlertDialog.Builder(this);
-			builder.setTitle("Add List");
-			builder.setMessage("Enter list name");
+			builder.setTitle("Add User");
+			builder.setMessage("User Name");
 			builder.setIcon(android.R.drawable.ic_dialog_alert);
+
+            // Set an EditText view to get user input 
+            final EditText input = new EditText(getApplicationContext());
+            input.setTextColor(0xFF000000);
+            input.setCursorVisible(true);
+            builder.setView(input);
 			
 			builder.setNegativeButton("Cancel", new OnClickListener() {
 
@@ -105,22 +112,13 @@ public class MainActivity extends Activity {
 	    		
 	            lv = (ListView) findViewById(R.id.list);
 
-	            // Instanciating an array list (you don't need to do this, 
-	            // you already have yours).
-	            ArrayList<String> your_array_list = new ArrayList<String>();
-	            your_array_list.add("Vlad's Work");
-	            your_array_list.add("Vlad's Home");
-	            your_array_list.add("Mike");
-	            your_array_list.add("Rafael's to-dos");
-	            your_array_list.add("Pablo");
-
 	            // This is the array adapter, it takes the context of the activity as a 
 	            // first parameter, the type of list view as a second parameter and your 
 	            // array as a third parameter.
 	            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
 	                    this, 
 	                    android.R.layout.simple_list_item_1,
-	                    your_array_list );
+	                    usersArrayList );
 
 	            lv.setAdapter(arrayAdapter); 
 	            
@@ -134,19 +132,10 @@ public class MainActivity extends Activity {
 	    	} else {
 	    		item.setTitle("Done");
 		        lv = (ListView) findViewById(R.id.list);
-
-		        // Instanciating an array list (you don't need to do this, 
-		        // you already have yours).
-		        ArrayList<String> your_array_list = new ArrayList<String>();
-		        your_array_list.add("Vlad's Work");
-		        your_array_list.add("Vlad's Home");
-		        your_array_list.add("Mike");
-		        your_array_list.add("Rafael's to-dos");
-		        your_array_list.add("Pablo");
 		        
 		        EditListArrayAdapter arrayAdapter = new EditListArrayAdapter(
 		                this,
-		                your_array_list );
+		                usersArrayList );
 		        
 		        lv.setAdapter(arrayAdapter); 
 		        

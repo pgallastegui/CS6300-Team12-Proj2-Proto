@@ -17,8 +17,9 @@ import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
 
 public class TodoList extends Activity {
-    private ListView 		lv;
-    private boolean  		isEditing;
+    private ListView 					lv;
+    private boolean  					isEditing;
+    private ArrayList<String> 			taskArrayList;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -29,16 +30,16 @@ public class TodoList extends Activity {
 
         // Instanciating an array list (you don't need to do this, 
         // you already have yours).
-        ArrayList<String> your_array_list = new ArrayList<String>();
-        your_array_list.add("This is a very long Todo and might span many lines of code, but what can you do?");
-        your_array_list.add("Vlad's Home");
-        your_array_list.add("Mike");
-        your_array_list.add("Rafael's to-dos");
-        your_array_list.add("Pablo");
+        taskArrayList = new ArrayList<String>();
+        taskArrayList.add("This is a very long Todo and might span many lines of code, but what can you do?");
+        taskArrayList.add("Code Project 2");
+        taskArrayList.add("Check mini-course 3 at Udacity");
+        taskArrayList.add("Finish with assessment quiz");
+        taskArrayList.add("Take the trash bin to the curb");
         
         TodoArrayAdapter arrayAdapter = new TodoArrayAdapter(
                 this,
-                your_array_list );
+                taskArrayList );
         
         lv.setAdapter(arrayAdapter); 
         
@@ -88,16 +89,10 @@ public class TodoList extends Activity {
 		    	
 		    	if (isEditing) {
 		    		item.setTitle("Edit");
-		            ArrayList<String> your_array_list = new ArrayList<String>();
-		            your_array_list.add("This is a very long Todo and might span many lines of code, but what can you do?");
-		            your_array_list.add("Vlad's Home");
-		            your_array_list.add("Mike");
-		            your_array_list.add("Rafael's to-dos");
-		            your_array_list.add("Pablo");
 		            
 		            TodoArrayAdapter arrayAdapter = new TodoArrayAdapter(
 		                    this,
-		                    your_array_list );
+		                    taskArrayList );
 		            
 		            lv.setAdapter(arrayAdapter); 
 		            
@@ -111,19 +106,10 @@ public class TodoList extends Activity {
 		    	} else {
 		    		item.setTitle("Done");
 			        lv = (ListView) findViewById(R.id.list);
-
-			        // Instanciating an array list (you don't need to do this, 
-			        // you already have yours).
-			        ArrayList<String> your_array_list = new ArrayList<String>();
-			        your_array_list.add("This is a very long Todo and might span many lines of code, but what can you do?");
-			        your_array_list.add("Vlad's Home");
-			        your_array_list.add("Mike");
-			        your_array_list.add("Rafael's to-dos");
-			        your_array_list.add("Pablo");
 			        
 			        EditListArrayAdapter arrayAdapter = new EditListArrayAdapter(
 			                this,
-			                your_array_list );
+			                taskArrayList );
 			        
 			        lv.setAdapter(arrayAdapter); 
 			        

@@ -17,23 +17,14 @@
         android:ems="10"
         android:inputType="textMultiLine" />
 
-    <RadioButton
-        android:id="@+id/radioButton3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/editText1"
-        android:layout_below="@+id/editText1"
-        android:text="High"
-        android:textColor="#FF990000" />
-
-    <RadioButton
-        android:id="@+id/radioButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/editText1"
-        android:layout_toLeftOf="@+id/radioButton3"
-        android:text="Med"
-        android:textColor="#FFFF9933" />
+<RadioGroup
+    android:id="@+id/radioGrop"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignRight="@+id/editText1"
+    android:layout_below="@+id/editText1"
+    android:layout_toRightOf="@+id/TextView03"
+    android:orientation="horizontal" >
 
     <RadioButton
         android:id="@+id/radioButton1"
@@ -45,6 +36,22 @@
         android:checked="true"
         android:text="Low"
         android:textColor="#FF000099" />
+
+    <RadioButton
+        android:id="@+id/radioButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/radioButton3"
+        android:text="Med"
+        android:textColor="#FFFF9933" />
+
+    <RadioButton
+        android:id="@+id/radioButton3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="High"
+        android:textColor="#FF990000" />
+</RadioGroup>
 
     <TextView
         android:id="@+id/TextView02"
@@ -59,8 +66,9 @@
         android:id="@+id/TextView01"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/radioButton1"
-        android:layout_alignBottom="@+id/radioButton1"
+        android:layout_alignBaseline="@+id/radioGrop"
+        android:layout_alignBottom="@+id/radioGrop"
+        android:layout_marginBottom="5dp"
         android:layout_alignParentLeft="true"
         android:text="Priority"
         android:textAppearance="?android:attr/textAppearanceMedium" />
@@ -70,7 +78,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/TextView01"
-        android:layout_below="@+id/radioButton1"
+        android:layout_below="@+id/radioGrop"
         android:layout_marginTop="14dp"
         android:text="Due Date"
         android:textAppearance="?android:attr/textAppearanceMedium" />
@@ -81,6 +89,7 @@
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/TextView03"
-        android:layout_marginTop="27dp" />
+        android:layout_marginTop="0dp"
+        android:showWeekNumber="false" />
 
 </RelativeLayout>
